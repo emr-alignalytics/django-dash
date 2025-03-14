@@ -1,0 +1,11 @@
+djaffle:
+  target: dev
+  outputs:
+    dev:
+      type: sqlite
+      threads: 1
+      database: 'db'
+      schema: 'main'
+      schemas_and_paths:
+        main: '../db.sqlite3'
+      schema_directory: '../'

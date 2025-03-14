@@ -1,0 +1,38 @@
+{% extends "board\master.html" %}
+
+{% block content %}
+<div class="row">
+{% if product_list %}
+{% for product in product_list %}
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
+                            <a class="nav-link link-light" href="/board/{{ product.id }}/">{{ product.name }}</a>.
+                        </div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">
+                            {{ product.price }}
+                        </div>
+                        <div class="col-auto">
+                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                        </div>
+                        <hr class="dark horizontal my-0">
+                        <div class="card-footer p-2 ps-3">
+                            <p class="mb-0 text-sm">
+                                <span class="text-success font-weight bolder">+55%</span>
+                                "than last week"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}
+{% else %}
+    <p>No products are available.</p>
+{% endif %}
+</div>
+{% endblock %}
