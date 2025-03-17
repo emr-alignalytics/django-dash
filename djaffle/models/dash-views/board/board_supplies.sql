@@ -1,9 +1,13 @@
-
+{{
+    config(
+        unique_key = 'supply_id'
+    )
+}}
 
 select supplies.supply_id
     , avg(supplies.supply_cost) as supply_cost
     , max(supplies.supply_cost) = min(supplies.supply_cost) as supply_cost_consistency_check
-    , any_value(supplies.is_perishable_supply)
+    , max(supplies.is_perishable_supply) as is_perishable_supply
 
     , count(distinct products) as count_products
     , count(distinct order_id) as count_orders

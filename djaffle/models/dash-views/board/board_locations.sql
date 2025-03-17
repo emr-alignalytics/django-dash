@@ -1,10 +1,14 @@
-
+{{
+    config(
+        unique_key = 'location_id'
+    )
+}}
 
 select 
     locations.location_id
-    , any_value(locations.location_name) as location_name
-    , any_value(locations.tax_rate) as tax_rate
-    , any_value(locations.opened_date) as opened_date
+    , max(locations.location_name) as location_name
+    , max(locations.tax_rate) as tax_rate
+    , max(locations.opened_date) as opened_date
 
     , count(distinct orders.order_id) as count_orders
     , sum(orders.subtotal) as total_sales_pretax

@@ -1,8 +1,14 @@
+{{
+    config(
+        unique_key = 'product_id'
+    )
+}}
+
 select 
     products.product_id
-    , any_value(products.product_name) as product_name
-    , any_value(products.product_price) as product_price
-    , any_value(products.product_description) as product_description
+    , max(products.product_name) as product_name
+    , max(products.product_price) as product_price
+    , max(products.product_description) as product_description
 
     , count(distinct order_items.order_id) as count_orders
     , count(distinct orders.customer_id) as count_customers

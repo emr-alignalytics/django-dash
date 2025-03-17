@@ -1,3 +1,9 @@
+{{
+    config(
+        unique_key = 'customer_id'
+    )
+}}
+
 with
 
 customers as (
